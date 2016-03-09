@@ -1,5 +1,6 @@
 from __future__ import division
 from numpy.fft import rfft
+from scikits.audiolab import flacread
 from numpy import argmax, sqrt, mean, diff, log
 from scipy.signal import blackmanharris
 from time import time
