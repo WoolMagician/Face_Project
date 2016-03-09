@@ -5,7 +5,7 @@ from scipy.signal import blackmanharris
 from time import time
 import sys
 
-from parabolic import parabolic
+#from parabolic import parabolic
 
 
 def freq_from_fft(sig, fs):
