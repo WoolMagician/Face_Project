@@ -1,5 +1,6 @@
 from __future__ import division
 from numpy.fft import rfft
+from scikits.audiolab import flacread
 from numpy import argmax, sqrt, mean, diff, log
 from scipy.signal import blackmanharris
 from time import time
@@ -20,7 +21,7 @@ def freq_from_fft(sig, fs):
     i = argmax(abs(f)) # Just use this for less-accurate, naive version
     true_i = parabolic(log(abs(f)), i)[0]
     
-    # Convert to equivalent frequency
+    # Convert to equivalent frequency 
     return fs * true_i / len(windowed)
 
 filename = sys.argv[1]
@@ -29,6 +30,4 @@ print 'Reading file "%s"\n' % filename
 signal, fs, enc = flacread(filename)
 
 print 'Calculating frequency from FFT:',
-start_time = time()
-print '%f Hz'   % freq_from_fft(signal, fs)
-print 'Time elapsed: %.3f s\n' % (time() - start_time)
+print (freq_from_fft(signal, fs))
